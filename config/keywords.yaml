@@ -4,9 +4,6 @@
 # El sistema solo enviará un aviso si el TÍTULO o el ÁREA de la convocatoria
 # contiene alguna de estas palabras o frases (sin distinguir mayúsculas,
 # minúsculas ni acentos).
-#
-# Para añadir una palabra clave nueva, añade una línea con "- " delante.
-# Para eliminarla, borra la línea. No hace falta tocar ningún archivo .py.
 # =============================================================================
 
 palabras_clave:
@@ -15,14 +12,14 @@ palabras_clave:
   - "Didáctica de las Matemáticas"
   - "Educación Matemática"
   - "Mathematics Education"
-  - "Profesor Ayudante Doctor"
-  - "Profesor Permanente Laboral"
-  - "Profesor Titular"
-  - "Profesor Contratado Doctor"
-  - "Profesor Asociado"
-  - "Personal Docente e Investigador"
-  - "PDI"
   - "Maestro"
   - "Educación Primaria"
+  - "Facultad de Educación"
   - "STEM"
   - "Innovación Educativa"
+  - "Didáctica de la Expresión Musical"
+  - "Expresión Musical, Plástica y Corporal"
+  - "DID.EXPRESIÓN MUSICAL"
+  - "Departamento de Didáctica de las Ciencias Experimentales, Sociales y de la Matemática"
+  - "DEPARTAMENTO: DID.EXPRESIÓN MUSICAL, PLAST.Y CORPORAL"
+  - "Departamento de Didáctica de la Expresión Musical, Plástica y Corporal"
