@@ -1,0 +1,32 @@
+2026-07-27 09:18:41 | INFO     | monitor_convocatorias | === Inicio de ejecución del monitor de convocatorias ===
+2026-07-27 09:18:41 | INFO     | monitor_convocatorias | --- Procesando Universidad de Valladolid (UVa) ---
+2026-07-27 09:18:42 | INFO     | monitor_convocatorias | [UVa] 10 anuncios encontrados en la primera página del tablón.
+2026-07-27 09:18:42 | INFO     | monitor_convocatorias | [uva] Nueva convocatoria detectada: PUBLICACIÓN DEL CANDIDATO/A A LA PLAZA DEL PROCEDIMIENTO DE URGENCIA Nº VIAS-URGENCIA-2026-000564 DE PLAZAS DE  PROFESOR ASOCIADO(TIEMPO PARCIAL 120 HORAS ANUALES.) EN EL DEPARTAMENTO ECONOMÍA FINANCIERA Y CONTABILIDAD, ÁREA ECONOMIA FINANCIERA Y CONTABILIDAD, DEL CENTRO FAC COMERCIO Y RELACIONES LABORALES-S PA.
+2026-07-27 09:18:44 | INFO     | monitor_convocatorias | Correo enviado correctamente a mcarpinterogo@gmail.com
+2026-07-27 09:18:44 | INFO     | monitor_convocatorias | [uva] Nueva convocatoria detectada: PUBLICACIÓN DEL CANDIDATO/A A LA PLAZA DEL PROCEDIMIENTO DE URGENCIA Nº VIAS-URGENCIA-2026-000621 DE PLAZAS DE  PROFESOR ASOCIADO(TIEMPO PARCIAL 120 HORAS ANUALES.) EN EL DEPARTAMENTO FILOLOGÍA INGLESA, ÁREA FILOLOGIA INGLESA, DEL CENTRO FAC CC SOCIALES JURIDIC Y DE LA COMUNIC.
+2026-07-27 09:18:47 | INFO     | monitor_convocatorias | Correo enviado correctamente a mcarpinterogo@gmail.com
+2026-07-27 09:18:47 | INFO     | monitor_convocatorias | [uva] Nueva convocatoria detectada: PUBLICACIÓN DEL CANDIDATO/A A LA PLAZA DEL PROCEDIMIENTO DE URGENCIA Nº VIAS-URGENCIA-2026-000505 DE PLAZAS DE  PROFESOR ASOCIADO(TIEMPO PARCIAL 90 HORAS ANUALES.) EN EL DEPARTAMENTO Cª MAT. E IM, EXP.GI, ICG Y F, IM E IPF, ÁREA INGENIERIA DE LOS PROCESOS FABRICACION, DEL CENTRO ESCUELA DE INGENIERIAS INDUSTRIALES.
+2026-07-27 09:18:50 | INFO     | monitor_convocatorias | Correo enviado correctamente a mcarpinterogo@gmail.com
+2026-07-27 09:18:50 | INFO     | monitor_convocatorias | [uva] Nueva convocatoria detectada: PUBLICACIÓN DEL CANDIDATO/A A LA PLAZA DEL PROCEDIMIENTO DE URGENCIA Nº VIAS-URGENCIA-2026-000506 DE PLAZAS DE  PROFESOR ASOCIADO(TIEMPO PARCIAL 90 HORAS ANUALES.) EN EL DEPARTAMENTO Cª MAT. E IM, EXP.GI, ICG Y F, IM E IPF, ÁREA INGENIERIA DE LOS PROCESOS FABRICACION, DEL CENTRO ESCUELA DE INGENIERIAS INDUSTRIALES.
+2026-07-27 09:18:53 | INFO     | monitor_convocatorias | Correo enviado correctamente a mcarpinterogo@gmail.com
+2026-07-27 09:18:53 | INFO     | monitor_convocatorias | [uva] Resumen: 10 encontradas, 4 nuevas, 0 errores.
+2026-07-27 09:18:55 | INFO     | monitor_convocatorias | --- Procesando UNED ---
+2026-07-27 09:18:56 | INFO     | monitor_convocatorias | [UNED] 66 convocatorias encontradas.
+2026-07-27 09:18:56 | INFO     | monitor_convocatorias | [uned] Resumen: 66 encontradas, 0 nuevas, 0 errores.
+2026-07-27 09:18:58 | INFO     | monitor_convocatorias | --- Procesando UNIR ---
+2026-07-27 09:18:59 | WARNING  | monitor_convocatorias | [unir] Intento 1/2 fallido: 404 Client Error: Not Found for url: https://www.unir.net/trabaja-en-unir/
+2026-07-27 09:19:06 | WARNING  | monitor_convocatorias | [unir] Intento 2/2 fallido: 404 Client Error: Not Found for url: https://www.unir.net/trabaja-en-unir/
+2026-07-27 09:19:06 | ERROR    | monitor_convocatorias | [unir] No se pudo obtener información tras 2 intentos: 404 Client Error: Not Found for url: https://www.unir.net/trabaja-en-unir/
+2026-07-27 09:19:06 | INFO     | monitor_convocatorias | [unir] Resumen: 0 encontradas, 0 nuevas, 0 errores.
+2026-07-27 09:19:08 | INFO     | monitor_convocatorias | --- Procesando UOC ---
+2026-07-27 09:19:09 | WARNING  | monitor_convocatorias | [uoc] Intento 1/2 fallido: 404 Client Error: Not Found for url: https://www.uoc.edu/es/la-uoc/treballa-uoc
+2026-07-27 09:19:14 | WARNING  | monitor_convocatorias | [uoc] Intento 2/2 fallido: 404 Client Error: Not Found for url: https://www.uoc.edu/es/la-uoc/treballa-uoc
+2026-07-27 09:19:14 | ERROR    | monitor_convocatorias | [uoc] No se pudo obtener información tras 2 intentos: 404 Client Error: Not Found for url: https://www.uoc.edu/es/la-uoc/treballa-uoc
+2026-07-27 09:19:14 | INFO     | monitor_convocatorias | [uoc] Resumen: 0 encontradas, 0 nuevas, 0 errores.
+2026-07-27 09:19:16 | INFO     | monitor_convocatorias | --- Procesando Universidad Isabel I ---
+2026-07-27 09:19:17 | INFO     | monitor_convocatorias | [isabel1] 2 posibles vacantes encontradas (scraper genérico heurístico).
+2026-07-27 09:19:17 | INFO     | monitor_convocatorias | [isabel1] Resumen: 2 encontradas, 0 nuevas, 0 errores.
+2026-07-27 09:19:19 | INFO     | monitor_convocatorias | --- Procesando Universidad Internacional de Valencia (VIU) ---
+2026-07-27 09:19:19 | INFO     | monitor_convocatorias | [viu] 2 posibles vacantes encontradas (scraper genérico heurístico).
+2026-07-27 09:19:19 | INFO     | monitor_convocatorias | [viu] Resumen: 2 encontradas, 0 nuevas, 0 errores.
+2026-07-27 09:19:21 | INFO     | monitor_convocatorias | === Fin de la ejecución. Total: 80 encontradas, 4 nuevas, 0 errores. ===
