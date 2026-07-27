@@ -1,0 +1,97 @@
+# =============================================================================
+# CONFIGURACIÓN DEL SISTEMA DE MONITORIZACIÓN DE CONVOCATORIAS
+# =============================================================================
+# Modifica este archivo para ajustar el comportamiento del sistema
+# SIN tocar ningún archivo de código Python.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# UNIVERSIDADES ACTIVAS
+# -----------------------------------------------------------------------------
+# Pon "activa: true" para monitorizar una universidad, o "activa: false"
+# para desactivarla temporalmente sin borrar su configuración.
+# El campo "modulo" indica el archivo Python en universidades/ que la implementa
+# y "clase" indica la clase que hay que instanciar dentro de ese archivo.
+# -----------------------------------------------------------------------------
+universidades:
+  - id: uva
+    nombre: "Universidad de Valladolid (UVa)"
+    activa: true
+    modulo: uva
+    clase: ScraperUVa
+    url: "https://portal.sede.uva.es/tablon/pdi/1/0/907"
+    tipo: presencial
+
+  - id: uned
+    nombre: "UNED"
+    activa: true
+    modulo: uned
+    clase: ScraperUNED
+    url: "https://www.uned.es/universidad/inicio/institucional/areas-direccion/vicerrectorados/personal-docente/concursos-plazas-pdi.html"
+    tipo: online
+
+  - id: unir
+    nombre: "UNIR"
+    activa: true
+    modulo: unir
+    clase: ScraperUNIR
+    url: "https://www.unir.net/trabaja-en-unir/"
+    tipo: online
+
+  - id: uoc
+    nombre: "UOC"
+    activa: true
+    modulo: uoc
+    clase: ScraperUOC
+    url: "https://www.uoc.edu/es/la-uoc/treballa-uoc"
+    tipo: online
+
+  - id: isabel1
+    nombre: "Universidad Isabel I"
+    activa: true
+    modulo: isabel1
+    clase: ScraperIsabel1
+    url: "https://www.ui1.es/trabaja-con-nosotros"
+    tipo: online
+
+  - id: viu
+    nombre: "Universidad Internacional de Valencia (VIU)"
+    activa: true
+    modulo: viu
+    clase: ScraperVIU
+    url: "https://www.universidadviu.com/es/trabaja-con-nosotros"
+    tipo: online
+
+# -----------------------------------------------------------------------------
+# CORREO ELECTRÓNICO
+# -----------------------------------------------------------------------------
+# El remitente y el servidor SMTP se rellenan mediante variables de entorno
+# (secretos de GitHub Actions), NO se escriben aquí en texto plano.
+# Nombres de las variables de entorno esperadas:
+#   SMTP_HOST      -> ej: smtp.gmail.com
+#   SMTP_PORT      -> ej: 587
+#   SMTP_USER      -> correo remitente (también se usa como usuario SMTP)
+#   SMTP_PASSWORD  -> contraseña de aplicación (NUNCA la contraseña normal)
+#   EMAIL_DESTINO  -> correo que recibe los avisos
+# -----------------------------------------------------------------------------
+correo:
+  asunto: "Nueva convocatoria detectada"
+  usar_tls: true
+
+# -----------------------------------------------------------------------------
+# COMPORTAMIENTO GENERAL
+# -----------------------------------------------------------------------------
+comportamiento:
+  timeout_segundos: 20
+  reintentos_por_universidad: 2
+  espera_entre_reintentos_segundos: 5
+  espera_entre_universidades_segundos: 2
+  user_agent: "Mozilla/5.0 (compatible; MonitorConvocatorias/1.0; +https://github.com/)"
+
+# -----------------------------------------------------------------------------
+# RUTAS (no es necesario modificarlas normalmente)
+# -----------------------------------------------------------------------------
+rutas:
+  base_datos: "database/convocatorias.db"
+  log: "logs/monitor.log"
+  palabras_clave: "config/keywords.yaml"
