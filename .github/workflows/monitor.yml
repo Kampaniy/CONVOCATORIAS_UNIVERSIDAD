@@ -7,17 +7,17 @@ on:
   # GitHub Actions programa los cron SIEMPRE en UTC, y España cambia de
   # huso horario dos veces al año (CET = UTC+1 en invierno, CEST = UTC+2
   # en verano). Para garantizar que el sistema se ejecute a las 08:00 y
-  # a las 20:00 hora de Madrid TODO EL AÑO, se programan 4 disparos UTC
+  # a las 18:00 hora de Madrid TODO EL AÑO, se programan 4 disparos UTC
   # (uno por cada combinación de hora objetivo y huso horario posible) y
   # el primer paso del job comprueba la hora real en Madrid, saltando el
-  # resto de pasos si no coincide con las 08:00 o las 20:00. Así el
+  # resto de pasos si no coincide con las 08:00 o las 18:00. Así el
   # sistema se ejecuta exactamente dos veces al día, sin depender del
   # cambio de hora ni de configuración manual adicional.
   schedule:
     - cron: "0 6 * * *"   # 08:00 hora de Madrid en horario de verano (CEST, UTC+2)
     - cron: "0 7 * * *"   # 08:00 hora de Madrid en horario de invierno (CET, UTC+1)
-    - cron: "0 18 * * *"  # 20:00 hora de Madrid en horario de verano (CEST, UTC+2)
-    - cron: "0 19 * * *"  # 20:00 hora de Madrid en horario de invierno (CET, UTC+1)
+    - cron: "0 16 * * *"  # 18:00 hora de Madrid en horario de verano (CEST, UTC+2)
+    - cron: "0 17 * * *"  # 18:00 hora de Madrid en horario de invierno (CET, UTC+1)
 
 permissions:
   contents: write  # necesario para poder guardar (commitear) la base de datos SQLite actualizada
@@ -35,7 +35,7 @@ jobs:
       - name: Decidir si toca ejecutar
         id: ejecutar
         run: |
-          if [ "${{ steps.hora.outputs.hora }}" = "08" ] || [ "${{ steps.hora.outputs.hora }}" = "20" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "${{ steps.hora.outputs.hora }}" = "08" ] || [ "${{ steps.hora.outputs.hora }}" = "18" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "ejecutar=true" >> "$GITHUB_OUTPUT"
           else
             echo "ejecutar=false" >> "$GITHUB_OUTPUT"
