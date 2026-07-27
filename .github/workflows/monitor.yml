@@ -1,0 +1,79 @@
+name: Monitor de convocatorias
+
+on:
+  # Ejecución manual desde la pestaña "Actions" de GitHub, útil para probar.
+  workflow_dispatch:
+
+  # GitHub Actions programa los cron SIEMPRE en UTC, y España cambia de
+  # huso horario dos veces al año (CET = UTC+1 en invierno, CEST = UTC+2
+  # en verano). Para garantizar que el sistema se ejecute a las 08:00 y
+  # a las 20:00 hora de Madrid TODO EL AÑO, se programan 4 disparos UTC
+  # (uno por cada combinación de hora objetivo y huso horario posible) y
+  # el primer paso del job comprueba la hora real en Madrid, saltando el
+  # resto de pasos si no coincide con las 08:00 o las 20:00. Así el
+  # sistema se ejecuta exactamente dos veces al día, sin depender del
+  # cambio de hora ni de configuración manual adicional.
+  schedule:
+    - cron: "0 6 * * *"   # 08:00 hora de Madrid en horario de verano (CEST, UTC+2)
+    - cron: "0 7 * * *"   # 08:00 hora de Madrid en horario de invierno (CET, UTC+1)
+    - cron: "0 18 * * *"  # 20:00 hora de Madrid en horario de verano (CEST, UTC+2)
+    - cron: "0 19 * * *"  # 20:00 hora de Madrid en horario de invierno (CET, UTC+1)
+
+permissions:
+  contents: write  # necesario para poder guardar (commitear) la base de datos SQLite actualizada
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Comprobar hora local de Madrid
+        id: hora
+        run: echo "hora=$(TZ='Europe/Madrid' date +%H)" >> "$GITHUB_OUTPUT"
+
+      - name: Decidir si toca ejecutar
+        id: ejecutar
+        run: |
+          if [ "${{ steps.hora.outputs.hora }}" = "08" ] || [ "${{ steps.hora.outputs.hora }}" = "20" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "ejecutar=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ejecutar=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout del repositorio
+        if: steps.ejecutar.outputs.ejecutar == 'true'
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        if: steps.ejecutar.outputs.ejecutar == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        if: steps.ejecutar.outputs.ejecutar == 'true'
+        run: pip install -r requirements.txt
+
+      - name: Ejecutar el monitor
+        if: steps.ejecutar.outputs.ejecutar == 'true'
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_DESTINO: ${{ secrets.EMAIL_DESTINO }}
+        run: python main.py
+
+      - name: Guardar cambios en el repositorio (base de datos y log)
+        if: steps.ejecutar.outputs.ejecutar == 'true'
+        run: |
+          git config user.name "monitor-convocatorias-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add database/convocatorias.db logs/monitor.log 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Actualiza base de datos y log [skip ci]"
+            git push
+          else
+            echo "No hay cambios que guardar."
+          fi
