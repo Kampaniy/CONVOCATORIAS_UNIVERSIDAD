@@ -272,3 +272,27 @@
 2026-08-10 16:39:01 | INFO     | monitor_convocatorias | [viu] 2 posibles vacantes encontradas (scraper genérico heurístico).
 2026-08-10 16:39:01 | INFO     | monitor_convocatorias | [viu] Resumen: 2 encontradas, 0 nuevas, 0 errores.
 2026-08-10 16:39:03 | INFO     | monitor_convocatorias | === Fin de la ejecución. Total: 80 encontradas, 0 nuevas, 0 errores. ===
+2026-08-11 06:46:14 | INFO     | monitor_convocatorias | === Inicio de ejecución del monitor de convocatorias ===
+2026-08-11 06:46:14 | INFO     | monitor_convocatorias | --- Procesando Universidad de Valladolid (UVa) ---
+2026-08-11 06:46:20 | INFO     | monitor_convocatorias | [UVa] 10 anuncios encontrados en la primera página del tablón.
+2026-08-11 06:46:20 | INFO     | monitor_convocatorias | [uva] Resumen: 10 encontradas, 0 nuevas, 0 errores.
+2026-08-11 06:46:22 | INFO     | monitor_convocatorias | --- Procesando UNED ---
+2026-08-11 06:46:27 | INFO     | monitor_convocatorias | [UNED] 66 convocatorias encontradas.
+2026-08-11 06:46:27 | INFO     | monitor_convocatorias | [uned] Resumen: 66 encontradas, 0 nuevas, 0 errores.
+2026-08-11 06:46:29 | INFO     | monitor_convocatorias | --- Procesando UNIR ---
+2026-08-11 06:46:30 | WARNING  | monitor_convocatorias | [unir] Intento 1/2 fallido: 403 Client Error: Forbidden for url: https://www.unir.net/trabaja-en-unir/
+2026-08-11 06:46:35 | WARNING  | monitor_convocatorias | [unir] Intento 2/2 fallido: 403 Client Error: Forbidden for url: https://www.unir.net/trabaja-en-unir/
+2026-08-11 06:46:35 | ERROR    | monitor_convocatorias | [unir] No se pudo obtener información tras 2 intentos: 403 Client Error: Forbidden for url: https://www.unir.net/trabaja-en-unir/
+2026-08-11 06:46:35 | INFO     | monitor_convocatorias | [unir] Resumen: 0 encontradas, 0 nuevas, 0 errores.
+2026-08-11 06:46:37 | INFO     | monitor_convocatorias | --- Procesando UOC ---
+2026-08-11 06:46:37 | WARNING  | monitor_convocatorias | [uoc] Intento 1/2 fallido: 404 Client Error: Not Found for url: https://www.uoc.edu/es/la-uoc/treballa-uoc
+2026-08-11 06:46:42 | WARNING  | monitor_convocatorias | [uoc] Intento 2/2 fallido: 404 Client Error: Not Found for url: https://www.uoc.edu/es/la-uoc/treballa-uoc
+2026-08-11 06:46:42 | ERROR    | monitor_convocatorias | [uoc] No se pudo obtener información tras 2 intentos: 404 Client Error: Not Found for url: https://www.uoc.edu/es/la-uoc/treballa-uoc
+2026-08-11 06:46:42 | INFO     | monitor_convocatorias | [uoc] Resumen: 0 encontradas, 0 nuevas, 0 errores.
+2026-08-11 06:46:44 | INFO     | monitor_convocatorias | --- Procesando Universidad Isabel I ---
+2026-08-11 06:46:45 | INFO     | monitor_convocatorias | [isabel1] 2 posibles vacantes encontradas (scraper genérico heurístico).
+2026-08-11 06:46:45 | INFO     | monitor_convocatorias | [isabel1] Resumen: 2 encontradas, 0 nuevas, 0 errores.
+2026-08-11 06:46:47 | INFO     | monitor_convocatorias | --- Procesando Universidad Internacional de Valencia (VIU) ---
+2026-08-11 06:46:47 | INFO     | monitor_convocatorias | [viu] 2 posibles vacantes encontradas (scraper genérico heurístico).
+2026-08-11 06:46:47 | INFO     | monitor_convocatorias | [viu] Resumen: 2 encontradas, 0 nuevas, 0 errores.
+2026-08-11 06:46:49 | INFO     | monitor_convocatorias | === Fin de la ejecución. Total: 80 encontradas, 0 nuevas, 0 errores. ===
